@@ -6,12 +6,14 @@ echo -n "Please enter your keystone URL: "
 read OS_AUTH_URL
 export OS_AUTH_URL=$OS_AUTH_URL
 
-echo -n "Please enter your tenant name: "
-read OS_TENANT_ID
-export OS_TENANT_ID=$OS_TENANT_ID
+echo -n "Please enter your domain name: "
+read OS_PROJECT_DOMAIN_NAME
+export OS_PROJECT_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME
+export OS_USER_DOMAIN_NAME=$OS_PROJECT_DOMAIN_NAME
 
-# ???
-# export OS_TENANT_NAME="service"
+echo -n "Please enter your project name: "
+read OS_PROJECT_NAME
+export OS_PROJECT_NAME=$OS_PROJECT_NAME
 
 # In addition to the owning entity (tenant), openstack stores the entity
 # performing the action as the **user**.
@@ -29,3 +31,6 @@ echo
 echo -n "Please enter your Region: "
 read OS_REGION_NAME
 export OS_REGION_NAME=$OS_REGION_NAME
+
+# CACERT HACK
+export OS_CACERT=/etc/ssl/certs/ca-certificates.crt
